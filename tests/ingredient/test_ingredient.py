@@ -1,5 +1,6 @@
-from src.models.ingredient import Ingredient, Restriction
-import enum # noqa: F401, E261, E501
+from src.models.ingredient import Ingredient
+# noqa: F401, E261, E501
+
 
 # Req 1
 def test_ingredient():
@@ -14,7 +15,6 @@ def test_ingredient():
 
     ingredient_3 = Ingredient("bacon")
     ingredient_4 = Ingredient("camarão")
-    
     assert ingredient_3.name == "bacon"
     assert ingredient_4.name == "camarão"
 
