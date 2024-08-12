@@ -32,7 +32,8 @@ class MenuBuilder:
             if restriction and restriction in dish.get_restrictions():
                 continue
 
-            if not all(ingredient in self.inventory.inventory for ingredient in dish.get_ingredients()):
+            if not all(ingredient in self.inventory.inventory for ingredient
+                       in dish.get_ingredients()):
                 continue
 
             menu.append({
