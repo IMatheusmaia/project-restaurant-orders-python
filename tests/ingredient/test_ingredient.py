@@ -1,4 +1,4 @@
-from src.models.ingredient import Ingredient
+from src.models.ingredient import Ingredient, Restriction
 # noqa: F401, E261, E501
 
 
@@ -17,7 +17,12 @@ def test_ingredient():
     ingredient_4 = Ingredient("camarão")
     assert ingredient_3.name == "bacon"
     assert ingredient_4.name == "camarão"
-
+    assert ingredient_3.restrictions == {Restriction.ANIMAL_MEAT,
+                                         Restriction.ANIMAL_DERIVED}
+    assert ingredient_4.restrictions == {Restriction.ANIMAL_MEAT,
+                                         Restriction.SEAFOOD,
+                                         Restriction.ANIMAL_DERIVED}
+    assert ingredient_3.__eq__(ingredient_4) is False
     assert repr(ingredient_3) == "Ingredient('bacon')"
     assert repr(ingredient_4) == "Ingredient('camarão')"
     assert ingredient_3 != ingredient_4
