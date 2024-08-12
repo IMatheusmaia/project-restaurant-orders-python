@@ -8,9 +8,9 @@ from models.dish import Dish
 class MenuData:
     def __init__(self, source_path: str) -> None:
         self.source_path = source_path
-        self.dishes = self._read_csv_and_create_dishes()
+        self.dishes = self._data()
 
-    def _read_csv_and_create_dishes(self) -> Set[Dish]:
+    def _data(self) -> Set[Dish]:
         dish_dict = dict()
 
         with open(self.source_path, "r") as file:
